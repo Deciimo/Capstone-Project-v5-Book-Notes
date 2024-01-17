@@ -1,0 +1,61 @@
+html {
+    background-color: aquamarine;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#newBookButton {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-right: 25px;
+    margin-bottom: 40px;
+    position: sticky;
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000;
+}
+
+#allBooks {
+    text-align: center;
+}
+
+.abook {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 300px;
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+}
+
+.abook figure {
+    margin-right: 10px;
+}
+
+.abook > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.abook h2 {
+    align-self: flex-start;
+}
+
+.abook p {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show initially */
+    -webkit-box-orient: vertical;
+}

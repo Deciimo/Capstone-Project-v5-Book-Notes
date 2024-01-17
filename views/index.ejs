@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Book Notes</h1>
+
+<section id="allBooks">
+    <% book.forEach(function(book) { %>
+
+    <div class="abook">
+        <figure><img src="<%= book.book_cover %>" alt="<%= book.title %>"></figure>
+        <div>
+            <a href="/edit/<%= book.id %>">Edit</a>
+
+            <h2><%= book.title %></h2>
+            <small>Date read:<%= book.date %> Score:<%= book.score %>/10</small>
+            <p class="truncated"><%= book.description_text %></p>
+            <p class="read-more-link" onclick="toggleReadMore(this)">Read more...</p>
+                
+                <form id="deleteForm<%= book.id %>" action="/delete/<%= book.id %>" method="post">
+                <input type="hidden" name="formType" value="delete">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    <% }); %>
+</section>
+
+<form id="newBookButton" action="/add">
+    <button type="submit">Upload New Review</button>
+</form>
+
+<%- include("partials/footer.ejs") %>
+
+<script>
+    function toggleReadMore(element) {
+        const paragraph = element.previousElementSibling;
+        paragraph.classList.toggle('truncated');
+        element.textContent = paragraph.classList.contains('truncated') ? 'Read more...' : 'Read less';
+    }
+</script>

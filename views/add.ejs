@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/add.css" />
+    <title>New Book</title>
+</head>
+<body>
+    <h1>Enter a Newbook</h1>
+    <form id="newBookForm" action="/add" method="post">
+    <div id="newBook">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="date">Date</label>
+        <input type="text" id="date" name="date" required>
+        <br>
+
+        <label for="book_cover">Cover URL</label>
+        <input type="text" id="book_cover" name="book_cover" required>
+        <br>
+
+        <label for="description_text">Description</label>
+        <br>
+        <textarea id="description_text" name="description_text" rows="4" cols="50" required></textarea>
+        <br>
+
+        <label for="score">Review</label>
+        <select id="score" name="score" required>
+            <!-- Creating options for numbers 1 to 10 -->
+            <% for (let i = 1; i <= 10; i++) { %>
+                <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select>
+        <br>
+
+        <button type="submit">Submit</button>
+    </div>
+    </form>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('newBookForm');
+            form.submit();
+        }
+    </script>
+</body>
+</html>
